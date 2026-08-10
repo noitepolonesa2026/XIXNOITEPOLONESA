@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Noite Polonesa, Itaiópolis (SC)</title>
+    <meta name="description"
+        content="A Noite Polonesa celebra a herança polonesa de Itaiópolis, Capital Catarinense da Cultura Polonesa. Sopas de entrada, danças folclóricas do grupo Więzy Polskie, jantar típico, baile e café colonial da madrugada.">
+    <meta name="author" content="Associação Cultural Polonesa de Itaiópolis">
+    <meta name="theme-color" content="#f5f4f1">
+
+    <!-- ATUALIZAR se o site mudar de endereço -->
+    <link rel="canonical" href="https://noitepolonesa.github.io/XVIIINOITEPOLONESA/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Noite Polonesa, Itaiópolis">
+    <meta property="og:title" content="Noite Polonesa, Itaiópolis (SC)">
+    <meta property="og:description"
+        content="Uma noite dedicada à herança polonesa de Itaiópolis: danças folclóricas, jantar típico, baile e café colonial da madrugada.">
+    <meta property="og:url" content="https://noitepolonesa.github.io/XVIIINOITEPOLONESA/">
+    <meta property="og:image" content="https://noitepolonesa.github.io/XVIIINOITEPOLONESA/image/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316161a'/%3E%3Cpath d='M6 24V8h3.6l4 8 4-8H21v16h-3.4V14.4L14 21.6h-1.2L9.2 14.4V24z' fill='%23f5f4f1'/%3E%3Ccircle cx='25' cy='22' r='3' fill='%23c1121f'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="image/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYCHTJXW1D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EYCHTJXW1D');
+    </script>
+</head>
+
+<body id="topo">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- =====================================================================
+         TOPO
+         ===================================================================== -->
+    <header class="topo" data-topo>
+        <div class="faixa topo__barra">
+            <a class="assinatura" href="#topo">
+                <span class="assinatura__edicao" data-marca-edicao>XIX</span>
+                <span class="assinatura__nome">Noite Polonesa</span>
+            </a>
+
+            <button class="menu-botao" type="button" data-menu aria-expanded="false" aria-controls="navegacao">
+                <span class="menu-botao__risco" aria-hidden="true"><span></span><span></span></span>
+                <span data-menu-texto>Menu</span>
+            </button>
+
+            <nav class="nav" id="navegacao" data-nav aria-label="Seções">
+                <ul class="nav__lista">
+                    <li><a class="nav__link" href="#programa" data-numero="01">Programa</a></li>
+                    <li><a class="nav__link" href="#cardapio" data-numero="02">Cardápio</a></li>
+                    <li><a class="nav__link" href="#artesanato" data-numero="03">Artesanato</a></li>
+                    <li><a class="nav__link" href="#grupo" data-numero="04">O grupo</a></li>
+                    <li><a class="nav__link" href="#associacao" data-numero="05">Associação</a></li>
+                    <li><a class="nav__link" href="#patrocinio" data-numero="06">Patrocínio</a></li>
+                    <li><a class="nav__link" href="#apoio" data-numero="07">Apoio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- =================================================================
+             CARTAZ
+             ================================================================= -->
+        <section class="cartaz">
+            <div class="faixa">
+                <p class="etiqueta cartaz__creditoTopo">
+                    Associação Cultural Polonesa de Itaiópolis
+                </p>
+
+                <p class="etiqueta cartaz__polones" data-cartaz-edicao>Décima nona edição</p>
+
+                <h1 class="cartaz__nome">
+                    <span class="cartaz__linha" data-cartaz-nome1>Noite</span>
+                    <span class="cartaz__linha" data-cartaz-nome2>Polonesa</span>
+                </h1>
+
+                <p class="etiqueta cartaz__polones" data-cartaz-polones>Noc Polska</p>
+
+                <p class="cartaz__chamada" data-cartaz-chamada>
+                    Uma noite inteira dedicada à herança polonesa de Itaiópolis. Sopas de
+                    entrada, danças folclóricas do grupo Więzy Polskie, jantar típico,
+                    baile e o café colonial da madrugada.
+                </p>
+
+                <div class="cartaz__acoes">
+                    <a class="botao" href="#programa">Ver o programa</a>
+                    <a class="botao botao--vazado" href="#cardapio">Cardápio de bebidas</a>
+                    <a class="botao botao--vazado" href="#grupo">Conhecer o grupo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             FAIXA DE DADOS
+             Onde, quem realiza e onde acompanhar. Preenchida por render.js.
+             ================================================================= -->
+        <section class="dados" aria-label="Local, realização e contato">
+            <div class="faixa">
+                <dl class="dados__grade" data-dados></dl>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             01 PROGRAMA
+             ================================================================= -->
+        <section class="secao" id="programa" aria-labelledby="programa-titulo">
+            <div class="faixa faixa--texto">
+                <div class="secao__indice">
+                    <span class="secao__numero">01</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">A noite</span>
+                </div>
+
+                <h2 class="secao__titulo" id="programa-titulo" data-titulo="programa">Programa da noite</h2>
+                <p class="secao__apoio" data-apoio="programa">
+                    A ordem da noite, do primeiro brinde ao café da madrugada.
+                </p>
+
+                <div class="secao__corpo">
+                    <ol class="programa" data-programa></ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             02 CARDÁPIO
+             ================================================================= -->
+        <section class="secao secao--fundo" id="cardapio" aria-labelledby="cardapio-titulo">
+            <div class="faixa">
+                <div class="secao__indice">
+                    <span class="secao__numero">02</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">Bar</span>
+                </div>
+
+                <h2 class="secao__titulo" id="cardapio-titulo" data-titulo="cardapio">Cardápio de bebidas</h2>
+                <p class="secao__apoio" data-apoio="cardapio">Serviço de bar durante toda a noite.</p>
+
+                <div class="secao__corpo">
+                    <p class="etiqueta cardapio__moeda" data-cardapio-moeda></p>
+                    <div class="cardapio" data-cardapio></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             03 ARTESANATO
+             ================================================================= -->
+        <section class="secao" id="artesanato" aria-labelledby="artesanato-titulo">
+            <div class="faixa">
+                <div class="secao__indice">
+                    <span class="secao__numero">03</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">No local</span>
+                </div>
+
+                <h2 class="secao__titulo" id="artesanato-titulo" data-titulo="artesanato">
+                    Artesanato e produtos locais
+                </h2>
+                <p class="secao__apoio" data-apoio="artesanato">
+                    Exposição e venda de artesanato polonês e produtos coloniais produzidos
+                    pela comunidade, montada no local do evento.
+                </p>
+
+                <div class="secao__corpo">
+                    <div class="galeria" data-galeria="artesanato"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             04 O GRUPO
+             ================================================================= -->
+        <section class="secao secao--fundo" id="grupo" aria-labelledby="grupo-titulo">
+            <div class="faixa">
+                <div class="secao__indice">
+                    <span class="secao__numero">04</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">Em cena</span>
+                </div>
+
+                <h2 class="secao__titulo" id="grupo-titulo" data-titulo="grupo">
+                    Grupo Folclórico Więzy Polskie
+                </h2>
+                <p class="secao__apoio" data-apoio="grupo">
+                    Cerca de 50 dançarinos entre os grupos adulto, juvenil e infantil. São eles
+                    que fazem as apresentações da Noite Polonesa.
+                </p>
+
+                <div class="secao__corpo">
+                    <div class="galeria" data-galeria="grupo"></div>
+                </div>
+
+                <div class="secao__corpo grupo__leitura">
+                    <p class="texto" data-grupo-texto></p>
+                    <div class="acordeoes" data-grupo-elenco></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             05 A ASSOCIAÇÃO
+             ================================================================= -->
+        <section class="secao" id="associacao" aria-labelledby="associacao-titulo">
+            <div class="faixa faixa--texto">
+                <div class="secao__indice">
+                    <span class="secao__numero">05</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">O ano inteiro</span>
+                </div>
+
+                <h2 class="secao__titulo" id="associacao-titulo" data-titulo="associacao">A Associação</h2>
+                <p class="secao__apoio" data-apoio="associacao">
+                    A festa é o ponto alto de um trabalho que acontece o ano inteiro, tocado pela
+                    Associação Cultural Polonesa de Itaiópolis.
+                </p>
+
+                <div class="secao__corpo">
+                    <div class="acordeoes" data-associacao></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             06 PATROCÍNIO
+             ================================================================= -->
+        <section class="secao secao--fundo" id="patrocinio" aria-labelledby="patrocinio-titulo">
+            <div class="faixa">
+                <div class="secao__indice">
+                    <span class="secao__numero">06</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">Quem investe</span>
+                </div>
+
+                <h2 class="secao__titulo" id="patrocinio-titulo" data-titulo="patrocinadores">Patrocinadores</h2>
+                <p class="secao__apoio" data-apoio="patrocinadores">
+                    A Noite Polonesa acontece com o apoio de quem investe na cultura da nossa cidade.
+                </p>
+
+                <div class="secao__corpo">
+                    <div class="cotas" data-patrocinadores></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             07 APOIO INSTITUCIONAL
+             ================================================================= -->
+        <section class="secao" id="apoio" aria-labelledby="apoio-titulo">
+            <div class="faixa">
+                <div class="secao__indice">
+                    <span class="secao__numero">07</span>
+                    <span class="secao__fio"></span>
+                    <span class="etiqueta secao__marcador">Instituições</span>
+                </div>
+
+                <h2 class="secao__titulo" id="apoio-titulo" data-titulo="apoiadores">Apoio institucional</h2>
+                <p class="secao__apoio" data-apoio="apoiadores">
+                    O trabalho da Associação só é possível graças a instituições que compartilham o
+                    compromisso com a preservação e a promoção da cultura polonesa na nossa cidade.
+                </p>
+
+                <div class="secao__corpo">
+                    <div class="logos" data-apoio-logos></div>
+                    <div class="apoio" data-apoio-textos></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             AVALIAÇÃO E INSTAGRAM
+             ================================================================= -->
+        <section class="secao secao--fundo" aria-label="Avaliação e redes">
+            <div class="faixa">
+                <div class="molduras">
+                    <div class="moldura">
+                        <p class="etiqueta moldura__rotulo">Depois da festa</p>
+                        <h2 class="moldura__titulo" data-avaliacao-titulo>Avalie o evento</h2>
+                        <p class="moldura__texto" data-avaliacao-texto>
+                            Sua opinião ajuda a Noite Polonesa a melhorar a cada edição.
+                        </p>
+                        <p class="moldura__acao">
+                            <a class="botao" data-avaliacao-botao target="_blank" rel="noopener noreferrer">
+                                Responder o formulário
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="moldura">
+                        <p class="etiqueta moldura__rotulo" data-instagram-arroba>
+                            @associacao_polonesa_itaiopolis
+                        </p>
+                        <h2 class="moldura__titulo">Acompanhe a Associação</h2>
+                        <p class="moldura__texto">
+                            Bastidores dos ensaios, dos preparativos e das atividades que a
+                            Associação toca durante o ano.
+                        </p>
+                        <p class="moldura__acao">
+                            <a class="botao botao--vazado" data-instagram-link
+                                href="https://www.instagram.com/associacao_polonesa_itaiopolis" target="_blank"
+                                rel="noopener noreferrer">Seguir no Instagram</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         RODAPÉ
+         ===================================================================== -->
+    <footer class="rodape">
+        <div class="faixa rodape__grade">
+            <div>
+                <p class="rodape__marca">Noite Polonesa<br>Noc Polska</p>
+                <p class="rodape__texto">
+                    Realização da Associação Cultural Polonesa de Itaiópolis, Capital Catarinense
+                    da Cultura Polonesa.
+                </p>
+                <p class="rodape__texto" data-contato-endereco></p>
+            </div>
+
+            <nav aria-label="Rodapé">
+                <p class="etiqueta rodape__titulo">Seções</p>
+                <ul class="rodape__lista">
+                    <li><a href="#programa">Programa da noite</a></li>
+                    <li><a href="#cardapio">Cardápio de bebidas</a></li>
+                    <li><a href="#artesanato">Artesanato</a></li>
+                    <li><a href="#grupo">Grupo Więzy Polskie</a></li>
+                    <li><a href="#associacao">A Associação</a></li>
+                    <li><a href="#patrocinio">Patrocínio</a></li>
+                    <li><a href="#apoio">Apoio institucional</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <p class="etiqueta rodape__titulo">Onde acompanhar</p>
+                <ul class="rodape__lista" data-contato-redes></ul>
+            </div>
+        </div>
+
+        <div class="faixa rodape__base">
+            <p>Site desenvolvido por <strong data-creditos-autor>Jean Fabio Gruber</strong></p>
+            <div class="redes" data-creditos-redes></div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         VISUALIZADOR DE FOTOS
+         ===================================================================== -->
+    <dialog class="visor" data-visor aria-label="Visualizador de fotos">
+        <button class="visor__fechar" type="button" data-visor-fechar>Fechar</button>
+        <figure class="visor__figura">
+            <img class="visor__imagem" data-visor-imagem alt="">
+            <div class="visor__barra">
+                <button class="visor__botao" type="button" data-visor-anterior>Anterior</button>
+                <span class="visor__contador" data-visor-contador></span>
+                <button class="visor__botao" type="button" data-visor-proxima>Próxima</button>
+            </div>
+        </figure>
+    </dialog>
+
+    <script src="dados/data.js"></script>
+    <script src="scripts/render.js"></script>
+    <script src="scripts/ui.js"></script>
+</body>
+
+</html>

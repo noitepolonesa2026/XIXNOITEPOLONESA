@@ -1,0 +1,439 @@
+/* =========================================================================
+   LAYOUT
+   Topo, navegação, cartaz de abertura, faixa de dados e rodapé.
+   ========================================================================= */
+
+/* =========================================================================
+   TOPO
+   Barra chapada com fio embaixo. Sem desfoque, sem sombra.
+   ========================================================================= */
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--papel);
+    border-bottom: 1px solid var(--fio);
+}
+
+.topo__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--e4);
+    height: var(--altura-topo);
+}
+
+/* ---------- Assinatura ------------------------------------------------------ */
+
+.assinatura {
+    display: flex;
+    align-items: center;
+    /* Ocupa a altura toda da barra: alvo de toque confortável */
+    align-self: stretch;
+    gap: var(--e2);
+    font-family: var(--letra-titulo);
+    font-weight: 600;
+    letter-spacing: var(--esp-larga);
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.assinatura:hover {
+    color: inherit;
+}
+
+.assinatura__edicao {
+    color: var(--vermelho);
+    font-size: var(--t-menor);
+}
+
+.assinatura__nome {
+    font-size: var(--t-menor);
+}
+
+@media (min-width: 48rem) {
+    .assinatura__edicao,
+    .assinatura__nome {
+        font-size: var(--t-base);
+    }
+}
+
+/* ---------- Botão do menu (some no desktop) ---------------------------------- */
+
+.menu-botao {
+    display: flex;
+    align-items: center;
+    gap: var(--e2);
+    height: 100%;
+    padding-inline: var(--e2);
+    margin-right: calc(-1 * var(--e2));
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    font-weight: 500;
+    letter-spacing: var(--esp-xlarga);
+    text-transform: uppercase;
+    transition: color var(--transicao);
+}
+
+.menu-botao:hover {
+    color: var(--vermelho);
+}
+
+/* Duas barras que viram X. Rotação de ícone, não movimento de layout. */
+.menu-botao__risco {
+    display: grid;
+    gap: 4px;
+    width: 1.125rem;
+}
+
+.menu-botao__risco span {
+    display: block;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform var(--transicao);
+}
+
+.menu-botao[aria-expanded="true"] .menu-botao__risco span:first-child {
+    transform: translateY(2.75px) rotate(45deg);
+}
+
+.menu-botao[aria-expanded="true"] .menu-botao__risco span:last-child {
+    transform: translateY(-2.75px) rotate(-45deg);
+}
+
+/* ---------- Navegação --------------------------------------------------------- */
+
+.nav {
+    display: none;
+}
+
+/* Mobile aberto: folha chapada, uma linha por seção, separadas por fio */
+.nav.aberta {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: block;
+    background: var(--papel);
+    border-bottom: 2px solid var(--tinta);
+}
+
+.nav.aberta .nav__lista {
+    width: min(100% - 2 * var(--e4), var(--largura));
+    margin-inline: auto;
+}
+
+.nav.aberta .nav__link {
+    display: block;
+    padding: var(--e4) 0;
+    border-bottom: 1px solid var(--fio-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-guia);
+    font-weight: 500;
+    letter-spacing: var(--esp-larga);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav.aberta .nav__lista li:last-child .nav__link {
+    border-bottom: 0;
+}
+
+.nav.aberta .nav__link.ativo {
+    color: var(--vermelho);
+}
+
+/* Contador da seção no menu mobile, como sumário */
+.nav.aberta .nav__link::before {
+    content: attr(data-numero);
+    display: inline-block;
+    width: 2.5rem;
+    color: var(--tinta-fraca);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-larga);
+}
+
+.nav.aberta .nav__link.ativo::before {
+    color: var(--vermelho);
+}
+
+@media (min-width: 62rem) {
+    .menu-botao {
+        display: none;
+    }
+
+    .nav,
+    .nav.aberta {
+        position: static;
+        display: block;
+        background: none;
+        border: 0;
+    }
+
+    .nav__lista {
+        display: flex;
+        align-items: center;
+        gap: var(--e5);
+    }
+
+    .nav.aberta .nav__lista {
+        width: auto;
+        margin: 0;
+    }
+
+    .nav.aberta .nav__link,
+    .nav__link {
+        display: block;
+        /* Altura de alvo confortável mesmo com a letra pequena */
+        padding-block: var(--e2);
+        padding-inline: 0;
+        border: 0;
+        font-family: var(--letra-titulo);
+        font-size: var(--t-mini);
+        font-weight: 500;
+        letter-spacing: var(--esp-larga);
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color var(--transicao);
+    }
+
+    .nav.aberta .nav__link::before {
+        content: none;
+    }
+
+    .nav__link:hover {
+        color: var(--vermelho);
+    }
+
+    /* Seção corrente: fio vermelho embaixo, sem deslocar nada */
+    .nav__link.ativo {
+        color: var(--vermelho);
+        box-shadow: inset 0 -2px 0 var(--vermelho);
+    }
+}
+
+/* =========================================================================
+   CARTAZ (abertura)
+   ========================================================================= */
+
+.cartaz {
+    position: relative;
+    padding-block: var(--e6) var(--e8);
+}
+
+.cartaz__creditoTopo {
+    padding-bottom: var(--e3);
+    border-bottom: 1px solid var(--fio);
+    color: var(--tinta-fraca);
+}
+
+.cartaz__nome {
+    margin-top: var(--e2);
+}
+
+.cartaz__linha {
+    display: block;
+}
+
+.cartaz__polones {
+    margin-top: var(--e4);
+    color: var(--vermelho);
+}
+
+.cartaz__chamada {
+    max-width: 34rem;
+    margin-top: var(--e5);
+    color: var(--tinta-media);
+    font-size: var(--t-guia);
+}
+
+.cartaz__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e3);
+    margin-top: var(--e6);
+}
+
+@media (min-width: 62rem) {
+    .cartaz {
+        padding-block: var(--e7) var(--e9);
+    }
+
+    .cartaz__nome {
+        margin-top: var(--e3);
+    }
+}
+
+/* =========================================================================
+   FAIXA DE DADOS
+   Bloco vermelho cheio logo abaixo do cartaz. É o que a pessoa que já vai
+   ao evento precisa ver primeiro: quando, onde e quem realiza.
+   ========================================================================= */
+
+.dados {
+    background: var(--vermelho);
+    color: var(--papel-claro);
+}
+
+.dados__grade {
+    display: grid;
+}
+
+.dados__campo {
+    padding-block: var(--e5);
+    border-top: 1px solid rgb(255 255 255 / 0.25);
+}
+
+.dados__campo:first-child {
+    border-top: 0;
+}
+
+.dados__rotulo {
+    color: rgb(255 255 255 / 0.72);
+}
+
+.dados__valor {
+    margin-top: var(--e2);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-med);
+    font-weight: 500;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.dados__detalhe {
+    margin-top: var(--e2);
+    color: rgb(255 255 255 / 0.82);
+    font-size: var(--t-base);
+}
+
+.dados__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    margin-top: var(--e2);
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-larga);
+    text-transform: uppercase;
+    text-decoration-color: rgb(255 255 255 / 0.5);
+}
+
+.dados__link:hover {
+    color: var(--papel-claro);
+    text-decoration-color: var(--papel-claro);
+}
+
+@media (min-width: 48rem) {
+    .dados__grade {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--e6);
+    }
+
+    .dados__campo {
+        padding-block: var(--e6);
+        border-top: 0;
+        border-left: 1px solid rgb(255 255 255 / 0.25);
+        padding-left: var(--e5);
+    }
+
+    .dados__campo:first-child {
+        border-left: 0;
+        padding-left: 0;
+    }
+}
+
+/* =========================================================================
+   RODAPÉ
+   ========================================================================= */
+
+.rodape {
+    background: var(--tinta);
+    color: rgb(242 239 231 / 0.7);
+}
+
+.rodape__grade {
+    display: grid;
+    gap: var(--e7);
+    padding-block: var(--e7);
+}
+
+@media (min-width: 48rem) {
+    .rodape__grade {
+        grid-template-columns: 1.6fr 1fr 1fr;
+        gap: var(--e6);
+    }
+}
+
+.rodape__marca {
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-med);
+    font-weight: 600;
+    letter-spacing: var(--esp-negativa);
+    text-transform: uppercase;
+    line-height: 1.05;
+}
+
+.rodape__texto {
+    max-width: 34ch;
+    margin-top: var(--e4);
+    font-size: var(--t-base);
+}
+
+.rodape__titulo {
+    margin-bottom: var(--e4);
+    padding-bottom: var(--e2);
+    border-bottom: 1px solid rgb(242 239 231 / 0.22);
+    color: var(--papel-claro);
+}
+
+.rodape__lista {
+    display: grid;
+    gap: var(--e2);
+    font-size: var(--t-base);
+}
+
+/* Link de lista não é link no meio de frase: precisa de 24px de altura */
+.rodape__lista a {
+    display: inline-block;
+    padding-block: 0.15rem;
+}
+
+.rodape a {
+    color: inherit;
+    text-decoration-color: rgb(242 239 231 / 0.3);
+}
+
+.rodape a:hover {
+    color: var(--papel-claro);
+    text-decoration-color: var(--papel-claro);
+}
+
+.rodape__base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--e4);
+    padding-block: var(--e5);
+    border-top: 1px solid rgb(242 239 231 / 0.22);
+    font-size: var(--t-menor);
+}
+
+.redes {
+    display: flex;
+    gap: var(--e5);
+}
+
+.redes a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-larga);
+    text-transform: uppercase;
+}

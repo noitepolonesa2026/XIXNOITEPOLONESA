@@ -1,0 +1,270 @@
+/* =========================================================================
+   BASE
+   Reset, tipografia, grade e as peças de estrutura que se repetem.
+   Mobile-first: o que está fora de @media vale a partir de 320px.
+   ========================================================================= */
+
+/* ---------- Reset --------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--altura-topo);
+}
+
+body {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--letra-texto);
+    font-size: var(--t-texto);
+    line-height: var(--alt-texto);
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* ---------- Ligações -------------------------------------------------------
+   Sublinhado fino que engrossa no hover. Sem movimento, sem cor nova.      */
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--fio);
+    transition: text-decoration-color var(--transicao), color var(--transicao);
+}
+
+a:hover {
+    color: var(--vermelho);
+    text-decoration-color: var(--vermelho);
+}
+
+:focus-visible {
+    outline: 2px solid var(--vermelho);
+    outline-offset: 2px;
+}
+
+.pular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: var(--e3) var(--e4);
+    background: var(--tinta);
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-larga);
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateY(-100%);
+}
+
+.pular:focus-visible {
+    transform: translateY(0);
+    color: var(--papel-claro);
+}
+
+/* ---------- Tipografia ------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--letra-titulo);
+    font-weight: 600;
+    line-height: var(--alt-justa);
+    letter-spacing: var(--esp-negativa);
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--t-cartaz);
+    line-height: var(--alt-cravada);
+}
+
+h2 {
+    font-size: var(--t-xgr);
+}
+
+h3 {
+    font-size: var(--t-med);
+}
+
+p {
+    text-wrap: pretty;
+}
+
+strong {
+    font-weight: 600;
+}
+
+/* Texto vindo do data.js: \n\n vira parágrafo sem precisar de HTML nos dados */
+.texto {
+    max-width: var(--largura-texto);
+    color: var(--tinta-media);
+    white-space: pre-line;
+}
+
+/* Etiqueta pequena em caixa alta. A voz "impressa" do site. */
+.etiqueta {
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    font-weight: 500;
+    letter-spacing: var(--esp-xlarga);
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* ---------- Grade ------------------------------------------------------------ */
+
+.faixa {
+    width: min(100% - 2 * var(--e4), var(--largura));
+    margin-inline: auto;
+}
+
+@media (min-width: 48rem) {
+    .faixa {
+        width: min(100% - 2 * var(--e6), var(--largura));
+    }
+}
+
+.faixa--texto {
+    max-width: 58rem;
+}
+
+/* ---------- Seção ------------------------------------------------------------ */
+
+.secao {
+    padding-block: var(--e-secao);
+}
+
+.secao--fundo {
+    background: var(--papel-fundo);
+}
+
+/* Cabeçalho de seção no formato de índice impresso:
+
+   01 ─────────────────────────────────────── PROGRAMA
+   Programação da noite
+   texto de apoio                                        */
+
+.secao__indice {
+    display: flex;
+    align-items: center;
+    gap: var(--e3);
+    padding-bottom: var(--e3);
+}
+
+.secao__numero {
+    color: var(--vermelho);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    font-weight: 600;
+    letter-spacing: var(--esp-larga);
+    font-variant-numeric: tabular-nums;
+}
+
+.secao__fio {
+    flex: 1;
+    height: 1px;
+    background: var(--fio);
+}
+
+.secao__marcador {
+    color: var(--tinta-fraca);
+}
+
+.secao__titulo {
+    padding-top: var(--e4);
+    border-top: 2px solid var(--tinta);
+}
+
+.secao__apoio {
+    max-width: 46rem;
+    margin-top: var(--e4);
+    color: var(--tinta-media);
+    font-size: var(--t-guia);
+}
+
+.secao__corpo {
+    margin-top: var(--e7);
+}
+
+/* ---------- Utilitários -------------------------------------------------------- */
+
+.oculto-visual {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ---------- Movimento reduzido -------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

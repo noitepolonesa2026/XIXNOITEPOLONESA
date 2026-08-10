@@ -1,0 +1,650 @@
+/* =========================================================================
+   COMPONENTES
+   Tudo é fio, campo de cor e tipografia. Nenhuma peça tem sombra, canto
+   arredondado ou deslocamento no hover.
+   ========================================================================= */
+
+/* =========================================================================
+   BOTÃO
+   Retângulo cheio. No hover troca o campo de cor, não a posição.
+   ========================================================================= */
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--e2);
+    min-height: 3rem;
+    padding-inline: var(--e5);
+    border: 1px solid var(--tinta);
+    background: var(--tinta);
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    font-weight: 500;
+    letter-spacing: var(--esp-xlarga);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color var(--transicao),
+                border-color var(--transicao),
+                color var(--transicao);
+}
+
+.botao:hover {
+    border-color: var(--vermelho);
+    background: var(--vermelho);
+    color: var(--papel-claro);
+}
+
+.botao--vazado {
+    background: transparent;
+    color: var(--tinta);
+}
+
+.botao--vazado:hover {
+    border-color: var(--tinta);
+    background: var(--tinta);
+    color: var(--papel-claro);
+}
+
+.botao--claro {
+    border-color: var(--papel-claro);
+    background: var(--papel-claro);
+    color: var(--tinta);
+}
+
+.botao--claro:hover {
+    border-color: var(--vermelho);
+    background: var(--vermelho);
+    color: var(--papel-claro);
+}
+
+
+/* =========================================================================
+   PROGRAMA
+   Tabela de horários no formato de programa impresso: hora à esquerda,
+   fio separando as linhas, nada mais.
+   ========================================================================= */
+
+.programa {
+    border-top: 2px solid var(--tinta);
+}
+
+.programa__linha {
+    display: grid;
+    grid-template-columns: 4.25rem 1fr;
+    gap: var(--e3);
+    padding-block: var(--e4);
+    border-bottom: 1px solid var(--fio);
+}
+
+.programa__hora {
+    color: var(--vermelho);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-base);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: var(--esp-larga);
+    font-variant-numeric: tabular-nums;
+}
+
+.programa__titulo {
+    font-size: var(--t-guia);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.programa__nota {
+    margin-top: var(--e1);
+    color: var(--tinta-fraca);
+    font-size: var(--t-base);
+}
+
+@media (min-width: 40rem) {
+    .programa__linha {
+        grid-template-columns: 8rem 1fr;
+        gap: var(--e5);
+        padding-block: var(--e5);
+    }
+
+    .programa__hora {
+        font-size: var(--t-guia);
+    }
+
+    .programa__titulo {
+        font-size: var(--t-med);
+    }
+}
+
+/* =========================================================================
+   CARDÁPIO
+   Carta de bar impressa. Duas decisões que vêm de menu de verdade:
+
+   1. Todos os preços caem no MESMO eixo vertical, em coluna de largura
+      fixa, valendo para a carta inteira e não por categoria. É o que
+      substitui o pontilhado ligando nome e preço.
+   2. Sem pontilhado e sem "R$" repetido item a item. O símbolo aparece
+      uma vez, no alto da carta.
+   ========================================================================= */
+
+/* Uma coluna por categoria. Colunas de texto (columns: 2) desequilibram
+   quando as categorias têm tamanhos diferentes: a maior não cabe na
+   primeira coluna e desce inteira, deixando um vão. Com grid, cada
+   categoria é uma coluna e o vão não existe. */
+.cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: var(--e7) var(--e8);
+    align-items: start;
+}
+
+.cardapio__grupo {
+    border-top: 2px solid var(--tinta);
+}
+
+.cardapio__titulo {
+    padding-block: var(--e3);
+    color: var(--vermelho);
+    font-size: var(--t-base);
+    font-weight: 500;
+    letter-spacing: var(--esp-xlarga);
+}
+
+.cardapio__item {
+    display: grid;
+    /* A segunda coluna é fixa: é o eixo dos preços */
+    grid-template-columns: 1fr 4.5rem;
+    column-gap: var(--e4);
+    padding-block: var(--e3);
+    border-top: 1px solid var(--fio-claro);
+}
+
+.cardapio__nome {
+    font-size: var(--t-base);
+    line-height: 1.35;
+}
+
+.cardapio__detalhe {
+    grid-column: 1;
+    margin-top: 0.15rem;
+    color: var(--tinta-fraca);
+    font-size: var(--t-menor);
+    line-height: 1.4;
+}
+
+.cardapio__preco {
+    grid-row: 1;
+    grid-column: 2;
+    font-family: var(--letra-titulo);
+    font-size: var(--t-base);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.cardapio__moeda {
+    margin-bottom: var(--e5);
+    color: var(--tinta-fraca);
+}
+
+/* =========================================================================
+   ACORDEÃO
+   <details> nativo: funciona sem JS e já vem acessível. Estilizado como
+   linha de sumário, não como cartão.
+   ========================================================================= */
+
+.acordeoes {
+    border-top: 2px solid var(--tinta);
+}
+
+/* Bloco de leitura do grupo: texto e elenco na mesma medida, com respiro
+   antes do fio que abre o acordeão. */
+.grupo__leitura {
+    max-width: 52rem;
+}
+
+.grupo__leitura .acordeoes {
+    margin-top: var(--e6);
+}
+
+.acordeao {
+    border-bottom: 1px solid var(--fio);
+}
+
+.acordeao__resumo {
+    display: flex;
+    align-items: baseline;
+    gap: var(--e4);
+    padding-block: var(--e4);
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--letra-titulo);
+    font-size: var(--t-guia);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    transition: color var(--transicao);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.acordeao__resumo::-webkit-details-marker {
+    display: none;
+}
+
+.acordeao__resumo:hover {
+    color: var(--vermelho);
+}
+
+.acordeao__titulo {
+    flex: 1;
+}
+
+/* Sinal de mais que vira menos. Só a barra vertical some. */
+.acordeao__sinal {
+    position: relative;
+    flex: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--vermelho);
+}
+
+.acordeao__sinal::before,
+.acordeao__sinal::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.875rem;
+    height: 1.5px;
+    background: currentColor;
+    translate: -50% -50%;
+}
+
+.acordeao__sinal::after {
+    rotate: 90deg;
+    transition: opacity var(--transicao);
+}
+
+.acordeao[open] .acordeao__sinal::after {
+    opacity: 0;
+}
+
+.acordeao__corpo {
+    padding-bottom: var(--e6);
+}
+
+.acordeao__corpo > * + * {
+    margin-top: var(--e4);
+}
+
+/* =========================================================================
+   LISTAS DENTRO DOS ACORDEÕES
+   ========================================================================= */
+
+/* Sem marcador: cada item é uma linha separada por fio, a mesma língua
+   do programa e do cardápio. */
+.lista {
+    max-width: var(--largura-texto);
+    border-top: 1px solid var(--fio-claro);
+}
+
+.lista li {
+    padding-block: var(--e3);
+    border-bottom: 1px solid var(--fio-claro);
+    color: var(--tinta-media);
+}
+
+/* Lista de nomes em colunas, separadas por fio */
+.nomes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 var(--e6);
+    border-top: 1px solid var(--fio);
+}
+
+@media (min-width: 34rem) {
+    .nomes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 60rem) {
+    .nomes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.nomes li {
+    padding-block: var(--e2);
+    border-bottom: 1px solid var(--fio-claro);
+    color: var(--tinta-media);
+    font-size: var(--t-base);
+}
+
+/* =========================================================================
+   GALERIA
+   Tira de contato que rola na horizontal. Resolve dois problemas de uma
+   vez: uma grade em coluna deixaria buracos na última fileira e comeria
+   milhares de pixels de altura no celular. A foto cortada na borda direita
+   é o que sinaliza que a tira continua.
+   ========================================================================= */
+
+.galeria {
+    display: flex;
+    gap: 3px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding-bottom: var(--e3);
+    scrollbar-width: thin;
+    scrollbar-color: var(--fio) transparent;
+}
+
+.galeria__item {
+    position: relative;
+    flex: none;
+    height: clamp(11rem, 44vw, 17rem);
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--papel-fundo);
+    scroll-snap-align: start;
+    cursor: pointer;
+}
+
+.galeria__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Moldura vermelha no hover. Aparece por opacidade, nada se desloca. */
+.galeria__item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 5px var(--vermelho);
+    opacity: 0;
+    transition: opacity var(--transicao);
+}
+
+.galeria__item:hover::after,
+.galeria__item:focus-visible::after {
+    opacity: 1;
+}
+
+/* =========================================================================
+   VISUALIZADOR
+   <dialog> nativo: já prende o foco e fecha no Esc.
+   ========================================================================= */
+
+.visor {
+    width: min(100vw - 1.5rem, 72rem);
+    max-width: none;
+    max-height: 92svh;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--papel-claro);
+}
+
+.visor::backdrop {
+    background: rgb(16 14 12 / 0.94);
+}
+
+.visor__figura {
+    display: grid;
+    gap: var(--e4);
+    justify-items: center;
+}
+
+.visor__imagem {
+    max-width: 100%;
+    max-height: 76svh;
+    object-fit: contain;
+}
+
+.visor__barra {
+    display: flex;
+    align-items: center;
+    gap: var(--e5);
+}
+
+.visor__botao {
+    padding: var(--e2) var(--e3);
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    font-weight: 500;
+    letter-spacing: var(--esp-xlarga);
+    text-transform: uppercase;
+    transition: color var(--transicao);
+}
+
+.visor__botao:hover {
+    color: var(--vermelho);
+}
+
+.visor__contador {
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-larga);
+    font-variant-numeric: tabular-nums;
+}
+
+.visor__fechar {
+    position: absolute;
+    top: calc(-1 * var(--e6));
+    right: 0;
+    color: var(--papel-claro);
+    font-family: var(--letra-titulo);
+    font-size: var(--t-mini);
+    letter-spacing: var(--esp-xlarga);
+    text-transform: uppercase;
+    transition: color var(--transicao);
+}
+
+.visor__fechar:hover {
+    color: var(--vermelho);
+}
+
+/* =========================================================================
+   PATROCINADORES
+   Lista tipográfica agrupada por cota. Sem caixa, sem cor por categoria.
+   ========================================================================= */
+
+.cotas {
+    display: grid;
+    gap: var(--e8);
+}
+
+.cota__nome {
+    padding-bottom: var(--e3);
+    border-bottom: 2px solid var(--tinta);
+    font-size: var(--t-med);
+    letter-spacing: var(--esp-larga);
+}
+
+.cota__lista {
+    display: grid;
+}
+
+@media (min-width: 48rem) {
+    .cota__lista {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--e8);
+    }
+}
+
+.patrocinador {
+    padding-block: var(--e4);
+    border-bottom: 1px solid var(--fio);
+}
+
+.patrocinador__nome {
+    font-family: var(--letra-titulo);
+    font-size: var(--t-guia);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.patrocinador__linha {
+    margin-top: var(--e2);
+    color: var(--tinta-fraca);
+    font-size: var(--t-menor);
+}
+
+.patrocinador__contatos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--e5);
+    margin-top: var(--e1);
+    font-size: var(--t-menor);
+}
+
+.patrocinador__contatos a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+}
+
+/* =========================================================================
+   APOIO INSTITUCIONAL
+   ========================================================================= */
+
+/* Uma célula por instituição, separadas por fio. Alinhar os logos à
+   esquerda numa caixa larga deixaria metade do bloco vazio. */
+.logos {
+    display: grid;
+    border: 1px solid var(--fio);
+    background: var(--papel-claro);
+}
+
+.logos__celula {
+    display: grid;
+    place-items: center;
+    padding: var(--e5);
+    border-top: 1px solid var(--fio-claro);
+}
+
+.logos__celula:first-child {
+    border-top: 0;
+}
+
+.logos img {
+    width: auto;
+    height: 2.75rem;
+    object-fit: contain;
+}
+
+@media (min-width: 48rem) {
+    .logos {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+
+    .logos__celula {
+        padding: var(--e6);
+        border-top: 0;
+        border-left: 1px solid var(--fio-claro);
+    }
+
+    .logos__celula:first-child {
+        border-left: 0;
+    }
+
+    .logos img {
+        height: 3.5rem;
+    }
+}
+
+/* Blocos de texto do apoio: subtítulo com fio, texto embaixo */
+.apoio {
+    display: grid;
+    gap: var(--e6);
+    margin-top: var(--e6);
+}
+
+@media (min-width: 62rem) {
+    .apoio {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--e6);
+    }
+}
+
+.apoio__item {
+    padding-top: var(--e3);
+    border-top: 2px solid var(--tinta);
+}
+
+.apoio__nome {
+    font-size: var(--t-base);
+    letter-spacing: var(--esp-larga);
+}
+
+.apoio__texto {
+    margin-top: var(--e3);
+    color: var(--tinta-media);
+    font-size: var(--t-base);
+}
+
+.apoio__lista {
+    margin-top: var(--e3);
+}
+
+.apoio__lista li {
+    font-size: var(--t-base);
+}
+
+/* =========================================================================
+   BLOCO EM MOLDURA
+   Usado no Instagram, no agradecimento e na avaliação. Só um retângulo de
+   2px, sem preenchimento: dá destaque sem repetir mais um campo escuro.
+   ========================================================================= */
+
+.molduras {
+    display: grid;
+    gap: var(--e5);
+}
+
+@media (min-width: 60rem) {
+    .molduras {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.moldura {
+    display: flex;
+    flex-direction: column;
+    padding: var(--e6) var(--e5);
+    border: 2px solid var(--tinta);
+}
+
+/* Empurra o botão para a base, alinhando os dois blocos lado a lado */
+.moldura__acao {
+    margin-top: auto;
+    padding-top: var(--e6);
+}
+
+@media (min-width: 48rem) {
+    .moldura {
+        padding: var(--e8);
+    }
+}
+
+.moldura__rotulo {
+    color: var(--vermelho);
+}
+
+.moldura__titulo {
+    margin-top: var(--e3);
+    font-size: var(--t-gr);
+}
+
+.moldura__texto {
+    max-width: 44rem;
+    margin-top: var(--e4);
+    color: var(--tinta-media);
+    font-size: var(--t-guia);
+}

@@ -1,0 +1,92 @@
+/* =========================================================================
+   TOKENS
+
+   O sistema todo sai daqui. Três regras que não se quebram:
+
+   1. Sem sombra. A separação vem de fio de 1px e de campo de cor chapada.
+   2. Sem canto arredondado. Papel cortado tem canto vivo.
+   3. Sem movimento no hover. O retorno visual é cor, fio ou fundo.
+   ========================================================================= */
+
+:root {
+    color-scheme: light;
+
+    /* ---------- Cor -----------------------------------------------------
+       Papel, tinta e um vermelho. Só. Paleta curta é o que segura o site
+       inteiro parecendo a mesma peça.
+
+       O papel é off-white neutro, não bege. Fundo creme é um dos vícios
+       mais reconhecíveis de site gerado por IA, e aqui não serve a nada:
+       preto e vermelho sobre papel branco é a combinação da própria
+       bandeira e do impresso polonês.                                     */
+
+    --papel:        #f5f4f1;
+    --papel-fundo:  #e8e7e2;
+    --papel-claro:  #fdfdfc;
+
+    --tinta:        #16161a;
+    --tinta-media:  #43434a;
+    --tinta-fraca:  #6b6b73;
+
+    --fio:          #cdccc6;
+    --fio-claro:    #e0dfd9;
+
+    --vermelho:      #c1121f;
+    --vermelho-fundo:#8c0c16;
+
+    /* ---------- Tipografia ----------------------------------------------
+       Oswald: condensada, de cartaz. Faz os títulos.
+       Source Serif: editorial, aguenta texto longo. Faz a leitura.        */
+
+    --letra-titulo: "Oswald", "Haettenschweiler", "Arial Narrow", sans-serif;
+    --letra-texto:  "Source Serif 4", Georgia, "Times New Roman", serif;
+
+    /* Escala com contraste alto de propósito: título gigante ao lado de
+       texto pequeno é o que dá cara de impresso.                          */
+    --t-nano:  0.6875rem;
+    --t-mini:  0.75rem;
+    --t-menor: 0.875rem;
+    --t-base:  1rem;
+    --t-texto: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+    --t-guia:  clamp(1.1875rem, 1.06rem + 0.55vw, 1.4375rem);
+    --t-med:   clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    --t-gr:    clamp(1.75rem, 1.35rem + 1.9vw, 2.75rem);
+    --t-xgr:   clamp(2.25rem, 1.5rem + 3.4vw, 4rem);
+    --t-cartaz: clamp(3.25rem, 1.2rem + 12.5vw, 9.5rem);
+
+    --alt-cravada: 0.86;
+    --alt-justa:   1.12;
+    --alt-texto:   1.62;
+
+    --esp-negativa: -0.015em;
+    --esp-larga:    0.1em;
+    --esp-xlarga:   0.2em;
+
+    /* ---------- Espaço ---------------------------------------------------- */
+    --e1: 0.25rem;
+    --e2: 0.5rem;
+    --e3: 0.75rem;
+    --e4: 1rem;
+    --e5: 1.5rem;
+    --e6: 2rem;
+    --e7: 3rem;
+    --e8: 4rem;
+    --e9: 6rem;
+
+    --e-secao: clamp(3.5rem, 9vw, 6.5rem);
+
+    /* ---------- Movimento -------------------------------------------------
+       Só cor e fundo transicionam. Nada se move, nada cresce.             */
+    --transicao: 130ms linear;
+
+    /* ---------- Layout ----------------------------------------------------- */
+    --largura:        75rem;
+    --largura-texto:  42rem;
+    --altura-topo:    3.25rem;
+}
+
+@media (min-width: 48rem) {
+    :root {
+        --altura-topo: 4rem;
+    }
+}
