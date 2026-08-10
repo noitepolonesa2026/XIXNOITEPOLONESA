@@ -121,7 +121,6 @@ window.dadosDoSite = {
             { src: "image/artesanato/2.jpg", alt: "Peça artesanal em exposição" },
             { src: "image/artesanato/3.jpg", alt: "Produtos coloniais à venda" },
             { src: "image/artesanato/4.jpg", alt: "Artesanato polonês em exposição" },
-            { src: "image/artesanato/5.jpg", alt: "Peça decorativa de inspiração polonesa" },
             { src: "image/artesanato/6.png", alt: "Produtos locais na banca da comunidade" }
         ]
     },
@@ -219,10 +218,10 @@ window.dadosDoSite = {
                 titulo: "Associação Cultural Polonesa",
                 texto:
                     "Entidade de direito privado fundada em 14 de julho de 2005, com sede na Rua Padre João Kominek, 120, bairro Alto Paraguaçu. Registrada sob o CNPJ 07.661.335/0001-08, tem como objetivo principal promover a cultura polonesa, além de preservar e conservar o patrimônio histórico e artístico da comunidade polonesa no município.\n\n" +
-                    "Em 2025 a Associação completou 20 anos de atuação. Algumas das ações já realizadas:",
+                    "Em 2026 a Associação completou 21 anos de atuação. Algumas das ações já realizadas:",
                 lista: [
                     "Administração do Grupo Folclórico Polonês Więzy Polskie",
-                    "Administração da Casa Polaski, aberta para visitação aos sábados e domingos, das 13h30 às 17h",
+                    "Administração da Casa Polaski",
                     "Aulas de polonês através da ORPEG",
                     "Bodega Polaski",
                     "Café Colonial",
@@ -232,7 +231,8 @@ window.dadosDoSite = {
                     "Teatro Natalino Górale",
                     "Recepção e imersão na cultura polonesa para turistas",
                     "Oficinas culturais de artesanato polonês e culinária",
-                    "Caminhadas ecológicas e exposições"
+                    "Caminhadas ecológicas e exposições",
+                    "19 edições da Noite Polonesa"
                 ]
             },
             {
@@ -241,8 +241,7 @@ window.dadosDoSite = {
                 texto:
                     "A sede da Associação fica no Bairro Histórico de Alto Paraguaçu e é conhecida como Casa Polaski. Construída em 1928, teve como primeiros proprietários Theodoro Smangorzewski e Martha Minikowka, e já abrigou um armazém e um banco.\n\n" +
                     "O comércio fechou no fim da década de 1940 e a casa foi vendida. A família Polaski foi a última proprietária. O imóvel foi adquirido e restaurado pelo Instituto do Patrimônio Histórico e Artístico Nacional (Iphan) e devolvido à comunidade, com o direito de administração concedido à Associação.\n\n" +
-                    "Hoje, além de sede, a Casa Polaski abriga um hostel voltado à cultura, ao turismo e à educação patrimonial, e recebe eventos, aulas de polonês, aulas de dança folclórica, oficinas culturais e a Colônia de Férias Górale.\n\n" +
-                    "Em parceria com o Consulado Geral da República da Polônia em Curitiba, a casa está aberta para visitação aos sábados e domingos, das 13h30 às 17h, quando é possível conhecer sua arquitetura e adquirir produtos artesanais e coloniais produzidos pela comunidade."
+                    "Hoje, além de sede, a Casa Polaski abriga um hostel voltado à cultura, ao turismo e à educação patrimonial, e recebe eventos, aulas de polonês, aulas de dança folclórica, oficinas culturais e a Colônia de Férias Górale."
             },
             {
                 id: "cidade",
@@ -250,13 +249,6 @@ window.dadosDoSite = {
                 texto:
                     "Itaiópolis é reconhecida como a Capital Catarinense da Cultura Polonesa pela forte presença de descendentes de imigrantes poloneses e pela preservação ativa de suas tradições. O município se destaca pela herança cultural trazida pelos primeiros colonizadores, que através de danças típicas, festas tradicionais, gastronomia, música e costumes mantém viva a memória polonesa de geração em geração.\n\n" +
                     "Essa herança é celebrada a cada ano na passagem de 2 e 3 de maio, quando se comemoram o Dia da Bandeira Polonesa, o Dia da Constituição Polonesa, o Dia da Comunidade Polonesa no Exterior, o Dia da Cultura Polonesa em Santa Catarina e o Dia da Comunidade Polonesa em Itaiópolis."
-            },
-            {
-                id: "coral",
-                titulo: "Chór Polskie Sokoły",
-                texto:
-                    "O Chór Polskie Sokoły, em português Coral Falcões Poloneses, é formado por alunos das aulas de língua polonesa de Papanduva que gostam de cantar. Foi criado em 2 de outubro de 2021, durante a primeira visita de uma delegação do governo polonês à cidade. O nome vem da canção folclórica \"Hej, Sokoły\" (Ei, falcões), apresentada naquela visita e também a primeira cantada pelo coral.\n\n" +
-                    "O grupo tem como objetivo, além do gosto pelo canto, aprimorar seus conhecimentos e difundir a língua e a cultura polonesa na região."
             }
         ]
     },

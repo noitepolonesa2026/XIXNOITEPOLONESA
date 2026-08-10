@@ -373,34 +373,69 @@
     opacity: 1;
 }
 
+/* Logos não são fotos. Cortar a marca é pior do que sobrar fundo, então
+   aqui é `contain` com respiro, sobre cartão claro. O quadrado acompanha
+   o formato dos arquivos, que são quadrados ou em pé. */
+.galeria--logos .galeria__item {
+    aspect-ratio: 1 / 1;
+    background: var(--papel-claro);
+    box-shadow: inset 0 0 0 1px var(--fio);
+}
+
+.galeria--logos .galeria__item img {
+    object-fit: contain;
+    padding: var(--e4);
+}
+
 /* =========================================================================
    VISUALIZADOR
    <dialog> nativo: já prende o foco e fecha no Esc.
    ========================================================================= */
 
+/* O diálogo ocupa a viewport inteira e centraliza o conteúdo. Antes ele
+   se dimensionava pela imagem, e a soma imagem + barra + folga passava da
+   altura da tela: no celular a barra caía para fora. */
 .visor {
-    width: min(100vw - 1.5rem, 72rem);
-    max-width: none;
-    max-height: 92svh;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
     color: var(--papel-claro);
 }
 
+/* `display` só no estado aberto. Sem esta guarda, a regra de autor
+   venceria o `dialog:not([open]) { display: none }` do navegador e o
+   visor ficaria visível com a página fechada. */
+.visor[open] {
+    display: grid;
+    place-items: center;
+}
+
 .visor::backdrop {
     background: rgb(16 14 12 / 0.94);
 }
 
+/* A linha da imagem é `minmax(0, 1fr)`: sem o mínimo zero ela adotaria a
+   altura natural do arquivo e empurraria a barra para fora da tela. */
 .visor__figura {
     display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
     gap: var(--e4);
     justify-items: center;
+    width: min(100vw - 1.5rem, 72rem);
+    max-height: 100dvh;
+    margin: 0;
+    padding: var(--e8) var(--e3) var(--e5);
 }
 
 .visor__imagem {
     max-width: 100%;
-    max-height: 76svh;
+    max-height: 100%;
+    min-height: 0;
     object-fit: contain;
 }
 
@@ -411,6 +446,9 @@
 }
 
 .visor__botao {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     padding: var(--e2) var(--e3);
     color: var(--papel-claro);
     font-family: var(--letra-titulo);
@@ -432,10 +470,17 @@
     font-variant-numeric: tabular-nums;
 }
 
+/* `fixed` ancorado na viewport. Com `absolute` e topo negativo o botão
+   saía para cima da caixa do diálogo e ficava inalcançável na tela do
+   celular, que é justamente onde não existe Esc. */
 .visor__fechar {
-    position: absolute;
-    top: calc(-1 * var(--e6));
-    right: 0;
+    position: fixed;
+    top: var(--e4);
+    right: var(--e4);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--e2) var(--e3);
     color: var(--papel-claro);
     font-family: var(--letra-titulo);
     font-size: var(--t-mini);
