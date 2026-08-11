@@ -34,6 +34,14 @@
     --vermelho:      #c1121f;
     --vermelho-fundo:#8c0c16;
 
+    /* ---------- Cotas ----------------------------------------------------
+       Ouro e prata envelhecidos, não metálico saturado: sobre papel off-white
+       o dourado vivo vira amarelo e o prata some. Estes dois têm contraste
+       suficiente para o fio de 1px aparecer.                              */
+
+    --ouro:   #a8842c;
+    --prata:  #8e8e96;
+
     /* ---------- Tipografia ----------------------------------------------
        Oswald: condensada, de cartaz. Faz os títulos.
        Source Serif: editorial, aguenta texto longo. Faz a leitura.        */

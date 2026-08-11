@@ -144,20 +144,6 @@
     color: var(--vermelho);
 }
 
-/* Contador da seção no menu mobile, como sumário */
-.nav.aberta .nav__link::before {
-    content: attr(data-numero);
-    display: inline-block;
-    width: 2.5rem;
-    color: var(--tinta-fraca);
-    font-size: var(--t-mini);
-    letter-spacing: var(--esp-larga);
-}
-
-.nav.aberta .nav__link.ativo::before {
-    color: var(--vermelho);
-}
-
 @media (min-width: 62rem) {
     .menu-botao {
         display: none;
@@ -222,7 +208,37 @@
     padding-block: var(--e6) var(--e8);
 }
 
+/* O selo vem depois do texto no código: no celular ele cai embaixo, sem
+   empurrar o título para fora da primeira tela. A partir de 60rem sobra
+   largura e ele passa para a coluna da direita. */
+.cartaz__grade {
+    display: grid;
+    gap: var(--e6);
+    align-items: center;
+}
+
+.cartaz__marca {
+    width: min(100%, 18rem);
+    height: auto;
+    justify-self: center;
+}
+
+@media (min-width: 60rem) {
+    .cartaz__grade {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 21rem);
+        gap: var(--e8);
+    }
+
+    .cartaz__marca {
+        width: 100%;
+        justify-self: end;
+    }
+}
+
+/* Atravessa as duas colunas: é o fio que abre a página, e parar na largura
+   da coluna de texto deixava um traço cortado no meio do cartaz. */
 .cartaz__creditoTopo {
+    grid-column: 1 / -1;
     padding-bottom: var(--e3);
     border-bottom: 1px solid var(--fio);
     color: var(--tinta-fraca);
@@ -276,29 +292,26 @@
     color: var(--papel-claro);
 }
 
+/* Sem fios internos. Eles dividiam a faixa em três células e a faziam
+   parecer um widget colado na página, coisa que o resto do site não tem:
+   aqui a separação é sempre espaço, não traço. */
 .dados__grade {
     display: grid;
-}
-
-.dados__campo {
-    padding-block: var(--e5);
-    border-top: 1px solid rgb(255 255 255 / 0.25);
-}
-
-.dados__campo:first-child {
-    border-top: 0;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
 }
 
 .dados__rotulo {
     color: rgb(255 255 255 / 0.72);
 }
 
+/* Sem os fios, o peso do tipo é o que estrutura a faixa. */
 .dados__valor {
     margin-top: var(--e2);
     font-family: var(--letra-titulo);
-    font-size: var(--t-med);
+    font-size: clamp(1.375rem, 0.95rem + 1.5vw, 2rem);
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.1;
     text-transform: uppercase;
 }
 
@@ -329,19 +342,6 @@
 @media (min-width: 48rem) {
     .dados__grade {
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--e6);
-    }
-
-    .dados__campo {
-        padding-block: var(--e6);
-        border-top: 0;
-        border-left: 1px solid rgb(255 255 255 / 0.25);
-        padding-left: var(--e5);
-    }
-
-    .dados__campo:first-child {
-        border-left: 0;
-        padding-left: 0;
     }
 }
 

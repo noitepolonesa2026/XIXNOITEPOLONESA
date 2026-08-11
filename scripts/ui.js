@@ -140,6 +140,30 @@
             if (contador) contador.textContent = `${indice + 1} / ${fotos.length}`;
         }
 
+        // Trava a página atrás do visor. `overflow: hidden` no body não basta
+        // no Safari do iPhone, que continua arrastando a página; prender o
+        // body com `position: fixed` é o que segura em todos os navegadores.
+        // O topo negativo mantém a página no lugar durante a trava.
+        let rolagemGuardada = 0;
+
+        function travarFundo() {
+            rolagemGuardada = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${rolagemGuardada}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+        }
+
+        function destravarFundo() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            // `instant` vence o `scroll-behavior: smooth` do html, que aqui
+            // viraria uma rolagem animada ao fechar.
+            window.scrollTo({ top: rolagemGuardada, behavior: "instant" });
+        }
+
         // Delegação: as galerias são montadas pelo render.js
         document.addEventListener("click", (evento) => {
             const item = evento.target.closest(".galeria__item");
@@ -150,6 +174,7 @@
 
             fotos = bloco.fotos;
             mostrar(Number(item.dataset.galeriaIndice));
+            travarFundo();
             visor.showModal();
         });
 
@@ -189,8 +214,11 @@
             else anterior();
         }, { passive: true });
 
-        // Solta a imagem grande da memória ao fechar
+        // Um só ponto de saída: o evento `close` cobre o botão Fechar, o Esc
+        // e o clique no fundo escuro.
         visor.addEventListener("close", () => {
+            destravarFundo();
+            // Solta a imagem grande da memória
             imagem.removeAttribute("src");
         });
     }

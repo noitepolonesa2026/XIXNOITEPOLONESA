@@ -139,6 +139,23 @@ p {
     text-wrap: pretty;
 }
 
+/* Texto corrido justificado, como em impresso.
+
+   Só nos blocos com medida larga o bastante. Justificar linha curta abre
+   rios de espaço no meio do parágrafo, e é por isso que a lista, o rodapé
+   e os blocos de duas linhas ficam de fora.
+
+   `hyphens: auto` não é enfeite: em português, com palavras longas como
+   "Rzeczypospolitej" e "folclóricas", justificar sem hifenizar estica as
+   entrelinhas de forma feia. Funciona porque o <html> declara lang="pt-BR". */
+.cartaz__chamada,
+.secao__apoio,
+.texto,
+.apoio__texto {
+    text-align: justify;
+    hyphens: auto;
+}
+
 strong {
     font-weight: 600;
 }
@@ -187,32 +204,19 @@ strong {
     background: var(--papel-fundo);
 }
 
-/* Cabeçalho de seção no formato de índice impresso:
+/* Cabeçalho de seção: etiqueta, régua, título.
 
-   01 ─────────────────────────────────────── PROGRAMA
-   Programação da noite
-   texto de apoio                                        */
+   A NOITE
+   ═══════════════════════════════════════════
+   Programa da noite
+   texto de apoio
+
+   Antes havia um fio fino atravessando a linha da etiqueta, logo acima da
+   régua do título. Dois traços paralelos a cada seção, catorze no total,
+   sem separar nada — a régua do título já faz esse trabalho. */
 
 .secao__indice {
-    display: flex;
-    align-items: center;
-    gap: var(--e3);
     padding-bottom: var(--e3);
-}
-
-.secao__numero {
-    color: var(--vermelho);
-    font-family: var(--letra-titulo);
-    font-size: var(--t-mini);
-    font-weight: 600;
-    letter-spacing: var(--esp-larga);
-    font-variant-numeric: tabular-nums;
-}
-
-.secao__fio {
-    flex: 1;
-    height: 1px;
-    background: var(--fio);
 }
 
 .secao__marcador {
@@ -231,8 +235,9 @@ strong {
     font-size: var(--t-guia);
 }
 
+/* Fluido: 3rem de respiro é muito no celular e pouco no desktop. */
 .secao__corpo {
-    margin-top: var(--e7);
+    margin-top: clamp(2rem, 5vw, 3rem);
 }
 
 /* ---------- Utilitários -------------------------------------------------------- */

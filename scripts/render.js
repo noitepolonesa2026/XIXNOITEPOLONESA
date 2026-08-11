@@ -313,12 +313,26 @@
 
         alvo.replaceChildren(
             ...bloco.cotas.map((cota) =>
-                criar("div", {}, [
+                criar("div", { class: cota.chave ? `cota cota--${cota.chave}` : "cota" }, [
                     criar("h3", { class: "cota__nome", texto: cota.nome }),
                     criar("div", { class: "cota__lista" }, cota.empresas.map(montarPatrocinador))
                 ])
             )
         );
+
+        const fecho = bloco.fecho;
+        if (!fecho) return;
+
+        escrever("[data-patrocinio-rotulo]", fecho.rotulo);
+        escrever("[data-patrocinio-brinde]", fecho.brinde);
+        escrever("[data-patrocinio-texto]", fecho.texto);
+
+        const post = $("[data-patrocinio-post]");
+        // Sem link ainda, o botão sai do ar em vez de virar âncora morta
+        if (post) {
+            if (fecho.post) post.href = fecho.post;
+            else post.closest(".moldura__acao")?.remove();
+        }
     }
 
     function montarPatrocinador(empresa) {
@@ -344,6 +358,15 @@
             );
         }
 
+        if (empresa.email) {
+            contatos.push(
+                criar("a", {
+                    href: "mailto:" + empresa.email,
+                    texto: empresa.email
+                })
+            );
+        }
+
         if (empresa.site) {
             contatos.push(
                 criar("a", {
@@ -355,11 +378,31 @@
             );
         }
 
-        return criar("article", { class: "patrocinador" }, [
+        // O texto vai num invólucro próprio: o logo é a primeira coluna da
+        // grade e as três linhas de texto precisam ocupar a segunda inteira.
+        const texto = criar("div", { class: "patrocinador__texto" }, [
             criar("h4", { class: "patrocinador__nome", texto: empresa.nome }),
             empresa.endereco && criar("p", { class: "patrocinador__linha", texto: empresa.endereco }),
             contatos.length > 0 && criar("p", { class: "patrocinador__contatos" }, contatos)
         ]);
+
+        const patrocinador = criar("article", { class: "patrocinador" }, [texto]);
+
+        if (empresa.logo) {
+            const logo = criar("img", {
+                class: "patrocinador__logo",
+                src: empresa.logo,
+                alt: `Logo ${empresa.nome}`,
+                loading: "lazy",
+                decoding: "async"
+            });
+
+            // Arquivo faltando: sobra o texto, em vez de um ícone quebrado
+            logo.addEventListener("error", () => logo.remove());
+            patrocinador.prepend(logo);
+        }
+
+        return patrocinador;
     }
 
     /** "https://instagram.com/bpitaiopolis" vira "@bpitaiopolis". */

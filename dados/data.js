@@ -163,7 +163,6 @@ window.dadosDoSite = {
                 "Amanda Gelbcke",
                 "Ana Carolina Adriano",
                 "Ana Flavia Rogalski",
-                "Ana Julia Mageroski",
                 "Anna Julia Ziemba",
                 "Antonio Paulo Lis Bauer",
                 "Bernardo Woiciechovski",
@@ -183,6 +182,7 @@ window.dadosDoSite = {
                 "Helena Woyszczak",
                 "Henrique Pamfil",
                 "Isabelly Rogalski",
+                "João Pedro Siqueira Hellinger",
                 "João Ricardo Alves dos Santos",
                 "Julia Duffeck Rodycz",
                 "Julia Levandovski",
@@ -190,6 +190,7 @@ window.dadosDoSite = {
                 "Ketherine Amanda De Souza Camargo",
                 "Leticia Siviero Da Silva",
                 "Luisa Fernanda Alves",
+                "Luiza Duffeck de Souza Teixeira",
                 "Mariah Bilicki De Deus Bueno",
                 "Maria Eduarda Mageroski",
                 "Mirella Karoline Rogalski",
@@ -259,75 +260,65 @@ window.dadosDoSite = {
     // ATUALIZAR a cada edição
     patrocinadores: {
         titulo: "Patrocinadores",
-        apoio: "A Noite Polonesa acontece com o apoio de quem investe na cultura da nossa cidade.",
+        apoio:
+            "Conheça os patrocinadores e apoiadores da 19ª Noite Polonesa, " +
+            "Polak Fest 2026.",
+
+        // Fecho da seção, depois das cotas
+        fecho: {
+            rotulo: "Agradecimento",
+            brinde: "Um brinde! Na zdrowie!",
+            texto:
+                "Agradecemos imensamente a todos. Apoio fundamental para o sucesso " +
+                "da iniciativa.",
+            post: "https://www.instagram.com/p/Db3RTZlsIJP/?igsh=d3plY3FqNTJ1Z202"
+        },
         cotas: [
             {
-                nome: "Cota Ouro",
+                nome: "Ouro",
+                chave: "ouro",
                 empresas: [
                     {
-                        nome: "Bom Preço Utilidades Domésticas",
-                        endereco: "Av. Alexandre Ricardo Worell, 112, Centro",
-                        telefone: "(47) 3652-2561",
-                        instagram: "https://www.instagram.com/bpitaiopolis"
-                    },
-                    {
                         nome: "Casarão, Museu da Memória Regional",
+                        logo: "image/patrocinadores/casarao.jpg",
                         endereco: "Rua Alfredo Schneider, 1490, Alto Paraguaçu",
                         telefone: "(47) 3305-3142",
                         instagram: "https://www.instagram.com/casarao.museudamemoriaregional"
                     },
                     {
-                        nome: "Contabilidade Semmer",
-                        endereco: "Av. Getúlio Vargas, 386, Centro",
-                        telefone: "(47) 3652-2220",
-                        site: "https://www.semmer.com.br"
-                    },
-                    {
                         nome: "Demais FM Planalto Norte",
+                        logo: "image/patrocinadores/demais-fm.jpg",
                         endereco: "Av. Alexandre Ricardo Worell, 89",
                         telefone: "(47) 99172-7403",
                         instagram: "https://www.instagram.com/demaisfmplanaltonorte"
                     },
                     {
-                        nome: "Odonto Excellence Itaiópolis",
-                        endereco: "Rua Cel. Antônio Corrêia, 241, Centro",
-                        telefone: "(47) 3652-2237",
-                        instagram: "https://www.instagram.com/odontoexcellenceitaiopolis"
+                        nome: "Gefil Artefatos de Cimento",
+                        logo: "image/patrocinadores/gefil.jpg",
+                        endereco: "Santo Antônio, interior, Itaiópolis/SC",
+                        telefone: "(47) 98809-0269",
+                        email: "gefilartefatos@gmail.com",
+                        instagram: "https://www.instagram.com/gefil_artefatos"
                     },
                     {
-                        nome: "Pierogarnia Lis",
-                        endereco: "Rua Alfredo Schneider, 1536, Alto Paraguaçu",
-                        telefone: "(47) 99187-3327",
-                        instagram: "https://www.instagram.com/pierogarnia_lis"
-                    },
-                    {
-                        nome: "Rede Ita",
-                        endereco: "Av. Alexandre Ricardo Worell, 215, Centro",
-                        telefone: "(47) 99904-3318",
-                        instagram: "https://www.instagram.com/postohj"
+                        nome: "Semmer Contabilidade",
+                        logo: "image/patrocinadores/semmer.png",
+                        endereco: "Av. Getúlio Vargas, 386, Centro",
+                        telefone: "(47) 3652-2220",
+                        site: "https://www.semmer.com.br"
                     }
                 ]
             },
             {
-                nome: "Cota Prata",
+                nome: "Prata",
+                chave: "prata",
                 empresas: [
                     {
-                        nome: "Poduszka Café e Bistro",
-                        endereco: "Rua Manoel Pedro da Silveira, 1743, Centro",
-                        telefone: "(47) 99222-8976",
-                        instagram: "https://www.instagram.com/poduszka_cafebistro"
-                    },
-                    {
                         nome: "Sicredi Itaiópolis",
+                        logo: "image/patrocinadores/sicredi.jpg",
                         endereco: "Av. Pres. Tancredo Neves, 16, Centro",
                         telefone: "(47) 3627-4641",
                         instagram: "https://www.instagram.com/sicredi"
-                    },
-                    {
-                        nome: "Soetur Turismo",
-                        endereco: "Rua Henrique Koening, Bom Jesus",
-                        telefone: "(47) 3652-2184",
-                        instagram: "https://www.instagram.com/soetur_turismo"
                     }
                 ]
             }
@@ -344,7 +335,7 @@ window.dadosDoSite = {
             "o compromisso com a preservação e a promoção da cultura polonesa na nossa cidade.",
         logos: [
             { src: "image/Apoiadores/prefeitura.png", alt: "Prefeitura Municipal de Itaiópolis" },
-            { src: "image/Apoiadores/Consulado.jpg", alt: "Consulado Geral da República da Polônia em Curitiba" },
+            { src: "image/Apoiadores/consulado.png", alt: "Consulado Geral da República da Polônia em Curitiba" },
             { src: "image/Apoiadores/ORPEG.png", alt: "ORPEG" }
         ],
         textos: [
@@ -385,7 +376,7 @@ window.dadosDoSite = {
         texto: "Sua opinião ajuda a Noite Polonesa a melhorar a cada edição.",
         botao: "Responder o formulário",
         // ATUALIZAR: link do formulário da edição corrente
-        url: "https://docs.google.com/forms/d/e/1FAIpQLSfUwFUUVkljhxC5SurdFUCMxjb7-vMlyrGN7AMJ98XSfLpKBQ/viewform"
+        url: "https://forms.gle/YsnnD8n7bLfgqUrLA"
     },
 
     /* ---------------------------------------------------------------------

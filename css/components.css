@@ -405,6 +405,7 @@
     border: 0;
     background: transparent;
     color: var(--papel-claro);
+    overscroll-behavior: contain;
 }
 
 /* `display` só no estado aberto. Sem esta guarda, a regra de autor
@@ -500,7 +501,7 @@
 
 .cotas {
     display: grid;
-    gap: var(--e8);
+    gap: clamp(2.5rem, 6vw, 4rem);
 }
 
 .cota__nome {
@@ -521,9 +522,56 @@
     }
 }
 
+/* Logo na primeira coluna, texto na segunda. */
 .patrocinador {
+    display: grid;
+    grid-template-columns: clamp(5.5rem, 22vw, 8rem) 1fr;
+    column-gap: var(--e4);
+    align-items: center;
     padding-block: var(--e4);
     border-bottom: 1px solid var(--fio);
+}
+
+/* Sem logo, o texto toma a linha inteira em vez de deixar buraco. */
+.patrocinador__texto:only-child {
+    grid-column: 1 / -1;
+}
+
+/* `contain` porque é marca: cortar descaracteriza. O cartão claro dá um
+   fundo comum a logos de proporções e fundos diferentes. */
+.patrocinador__logo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: var(--e2);
+    object-fit: contain;
+    background: var(--papel-claro);
+    box-shadow: inset 0 0 0 1px var(--fio);
+}
+
+/* A cota se lê pela cor do fio: contorno do logo, régua entre empresas e
+   o traço do título. Nada de tarja nem selo, só a linha trocando de cor. */
+.cota--ouro .cota__nome {
+    border-bottom-color: var(--ouro);
+}
+
+.cota--ouro .patrocinador {
+    border-bottom-color: var(--ouro);
+}
+
+.cota--ouro .patrocinador__logo {
+    box-shadow: inset 0 0 0 2px var(--ouro);
+}
+
+.cota--prata .cota__nome {
+    border-bottom-color: var(--prata);
+}
+
+.cota--prata .patrocinador {
+    border-bottom-color: var(--prata);
+}
+
+.cota--prata .patrocinador__logo {
+    box-shadow: inset 0 0 0 2px var(--prata);
 }
 
 .patrocinador__nome {
@@ -560,26 +608,25 @@
 
 /* Uma célula por instituição, separadas por fio. Alinhar os logos à
    esquerda numa caixa larga deixaria metade do bloco vazio. */
+/* Também era caixa com divisórias internas. As três logos têm fundo
+   transparente, então pousam direto no papel e o espaço separa. */
 .logos {
     display: grid;
-    border: 1px solid var(--fio);
-    background: var(--papel-claro);
+    gap: clamp(2.5rem, 6vw, 4rem);
+    align-items: center;
 }
 
 .logos__celula {
     display: grid;
     place-items: center;
-    padding: var(--e5);
-    border-top: 1px solid var(--fio-claro);
 }
 
-.logos__celula:first-child {
-    border-top: 0;
-}
-
+/* Altura contínua em vez de dois degraus fixos: entre 48rem e 62rem as
+   logos ficavam pequenas para a largura já disponível. */
 .logos img {
     width: auto;
-    height: 2.75rem;
+    max-width: 100%;
+    height: clamp(5rem, 8vw, 6.5rem);
     object-fit: contain;
 }
 
@@ -587,20 +634,6 @@
     .logos {
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
-    }
-
-    .logos__celula {
-        padding: var(--e6);
-        border-top: 0;
-        border-left: 1px solid var(--fio-claro);
-    }
-
-    .logos__celula:first-child {
-        border-left: 0;
-    }
-
-    .logos img {
-        height: 3.5rem;
     }
 }
 
@@ -648,9 +681,11 @@
    2px, sem preenchimento: dá destaque sem repetir mais um campo escuro.
    ========================================================================= */
 
+/* Sem a caixa, os dois blocos precisam de mais distância entre si: era a
+   moldura que os separava, agora é o vão. */
 .molduras {
     display: grid;
-    gap: var(--e5);
+    gap: clamp(2.5rem, 6vw, 4rem);
 }
 
 @media (min-width: 60rem) {
@@ -659,23 +694,26 @@
     }
 }
 
+/* Era um retângulo fechado de 2px, o único elemento em caixa da página
+   inteira — daí destoar. Vira bloco aberto com régua no topo, a mesma
+   abertura que o título de seção, o programa e o cardápio usam. */
 .moldura {
     display: flex;
     flex-direction: column;
-    padding: var(--e6) var(--e5);
-    border: 2px solid var(--tinta);
+    padding-top: var(--e4);
+    border-top: 2px solid var(--tinta);
+}
+
+/* Fecho do patrocínio: mesma moldura, mas solto abaixo das cotas em vez
+   de emparelhado, então precisa do respiro que a grade dava. */
+.moldura--fecho {
+    margin-top: var(--e7);
 }
 
 /* Empurra o botão para a base, alinhando os dois blocos lado a lado */
 .moldura__acao {
     margin-top: auto;
     padding-top: var(--e6);
-}
-
-@media (min-width: 48rem) {
-    .moldura {
-        padding: var(--e8);
-    }
 }
 
 .moldura__rotulo {
