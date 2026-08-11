@@ -165,14 +165,14 @@ window.dadosDoSite = {
                 "Ana Flavia Rogalski",
                 "Anna Julia Ziemba",
                 "Antonio Paulo Lis Bauer",
+                "Artur Martins",
                 "Bernardo Woiciechovski",
+                "Camila Emanoeli Sieradzki",
                 "Carlos Daniel Jacintho de Souza",
                 "Catarina Wielewski",
                 "Clara Lis Bauer",
-                "Clarisa Aparecida Freza",
                 "Diogo Andrzejewski",
                 "Diovane Junior Pickcius Strobel",
-                "Dirceu Labas",
                 "Eduardo Davet De Jesus",
                 "Erika Sperka Novacki",
                 "Francisco Emanuel Penkal Kovalski",
@@ -197,7 +197,6 @@ window.dadosDoSite = {
                 "Nicolas Rogalevski",
                 "Paloma Szostak",
                 "Pietro José Ahrendt",
-                "Rodrigo Mikley Bilobran",
                 "Talita Rogalewski"
             ]
         }
