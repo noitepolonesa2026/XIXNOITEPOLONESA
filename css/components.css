@@ -70,9 +70,11 @@
     border-top: 2px solid var(--tinta);
 }
 
+/* A coluna da hora comporta um intervalo ("18h30 – 19h45") quebrado em duas
+   linhas, então é medida pela metade mais larga, "18h30 –", e não por "18h30". */
 .programa__linha {
     display: grid;
-    grid-template-columns: 4.25rem 1fr;
+    grid-template-columns: 5rem 1fr;
     gap: var(--e3);
     padding-block: var(--e4);
     border-bottom: 1px solid var(--fio);

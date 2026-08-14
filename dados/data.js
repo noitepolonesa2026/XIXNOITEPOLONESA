@@ -59,13 +59,23 @@ window.dadosDoSite = {
         titulo: "Programa da noite",
         apoio: "A ordem da noite, do primeiro brinde ao café da madrugada.",
         itens: [
-            { hora: "18h30", titulo: "Recepção" },
-            { hora: "18h45", titulo: "Entrada com sopas" },
-            { hora: "20h00", titulo: "Apresentações folclóricas", nota: "Grupo Folclórico Więzy Polskie" },
-            { hora: "20h45", titulo: "Quebra-gelo e brinde da vodka" },
-            { hora: "21h15", titulo: "Jantar típico polonês" },
-            { hora: "22h30", titulo: "Baile", nota: "Com Ignácio Arendt" },
-            { hora: "02h00", titulo: "Café colonial da madrugada" }
+            { hora: "18h30 – 19h45", titulo: "Serviço da sopa" },
+            { hora: "19h45 – 20h00", titulo: "Fala das autoridades" },
+            { hora: "20h00", titulo: "Polonez", nota: "Grupo Folclórico Polonês Więzy Polskie, categoria adulta. Coreografia: Catarina Wielewski" },
+            { hora: "20h05", titulo: "Vídeo 01", nota: "\"Polacos de Itaiópolis\"" },
+            { hora: "20h10", titulo: "Baba Dziad", nota: "Grupo Folclórico Polonês Więzy Polskie, categoria infantil. Coreografia: Diovane Junior Pickcius Strobel" },
+            { hora: "20h20", titulo: "Início da Cerimônia do Quebra-Gelo" },
+            { hora: "20h45", titulo: "Brinde com a vodka polonesa" },
+            { hora: "21h15", titulo: "Serviço do jantar" },
+            { hora: "22h10", titulo: "Agradecimentos", nota: "Aos patrocinadores e aos doadores dos calçados do grupo" },
+            { hora: "22h15", titulo: "Cieszyński Czardasz Śląski", nota: "Grupo Folclórico Polonês Więzy Polskie. Coreografia: Anna Punda. Ensaios: Catarina Wielewski" },
+            { hora: "22h20", titulo: "Vídeo 02", nota: "\"Polacos de Itaiópolis\"" },
+            { hora: "22h25", titulo: "Hej Żywieckie Gronicki", nota: "Grupo Folclórico Polonês Więzy Polskie, categoria juvenil. Coreografia do Grupo Folclórico Polonês da Universidade Politécnica de Varsóvia. Ensaios: Diovane Junior Pickcius Strobel" },
+            { hora: "22h30", titulo: "Vídeo 03", nota: "\"Polacos de Itaiópolis\"" },
+            { hora: "22h35", titulo: "Wianku", nota: "Grupo Folclórico Polonês Więzy Polskie, categoria juvenil. Coreografia: Diovane Junior Pickcius Strobel" },
+            { hora: "22h45", titulo: "7 Passos", nota: "Dança tradicional polonesa" },
+            { hora: "23h00", titulo: "Início do baile", nota: "Com Ignácio Arendt" },
+            { hora: "02h30", titulo: "Café colonial da madrugada" }
         ]
     },
 
@@ -91,17 +101,18 @@ window.dadosDoSite = {
             {
                 nome: "Vinhos",
                 itens: [
-                    { nome: "Quinta do Morgado", detalhe: "suave, nacional", preco: "50,00" },
-                    { nome: "Ventisquero Explorador", detalhe: "cabernet sauvignon, Chile", preco: "70,00" },
-                    { nome: "Signos", detalhe: "malbec, Argentina", preco: "85,00" },
-                    { nome: "Errazuriz 1870 Reserva", detalhe: "cabernet sauvignon, Chile", preco: "85,00" }
+                    { nome: "Quinta do Morgado", detalhe: "tinto suave, nacional", preco: "50,00" },
+                    { nome: "Cordero Con Piel de Lobo Malbec", detalhe: "Argentina", preco: "95,00" },
+                    { nome: "Cordero Con Piel de Lobo Cabernet Sauvignon", detalhe: "Argentina", preco: "95,00" },
+                    { nome: "Séptima Obra Malbec", detalhe: "Argentina", preco: "130,00" },
+                    { nome: "Séptima Obra Cabernet Sauvignon", detalhe: "Argentina", preco: "130,00" }
                 ]
             },
             {
                 nome: "Espumantes",
                 itens: [
-                    { nome: "Gazzaro Brut", detalhe: "Serra Gaúcha", preco: "90,00" },
-                    { nome: "Gazzaro Moscatel", detalhe: "Serra Gaúcha", preco: "90,00" },
+                    { nome: "Gazzaro Brut", detalhe: "Serra Gaúcha", preco: "110,00" },
+                    { nome: "Gazzaro Moscatel", detalhe: "Serra Gaúcha", preco: "110,00" },
                     { nome: "Rolha", preco: "70,00" }
                 ]
             }
